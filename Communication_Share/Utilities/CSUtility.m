@@ -32,4 +32,21 @@
                                   domain:NSUserDomainMask
                         relativeFilePath:UserInfoFileName];
 }
+#pragma mark -
+#pragma mark EMail format check
++ (BOOL)validateEmailAddress:(NSString*)address
+{
+    if (!address) {
+        return NO;
+    }
+    
+    NSError             *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSTextCheckingResult *match = [regex firstMatchInString:address
+                                                    options:0
+                                                      range:NSMakeRange(0, address.length)];
+    return (match != nil);
+}
 @end

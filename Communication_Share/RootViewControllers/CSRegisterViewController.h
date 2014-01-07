@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CSRegisterViewDelegate;
+
 @interface CSRegisterViewController : UIViewController
 
+@property (strong, nonatomic) id<CSRegisterViewDelegate> delegate;
 @property (strong, nonatomic) NSError *error;
 @property (strong, nonatomic) IBOutlet UITextField *txtLoginName;
 @property (strong, nonatomic) IBOutlet UITextField *txtNickName;
@@ -21,5 +24,13 @@
 
 -(IBAction)actRegister:(id)sender;
 -(IBAction)actCancel:(id)sender;
+
+@end
+
+@protocol CSRegisterViewDelegate <NSObject>
+
+@optional
+
+-(void)welcomeLoginEnd:(CSRegisterViewController *)aRegisterVC;
 
 @end

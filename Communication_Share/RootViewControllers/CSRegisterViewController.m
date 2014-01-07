@@ -10,6 +10,9 @@
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CSConnectionManager.h"
+#import "CSRootViewController.h"
+#import "CSEncrypt.h"
+#import "CSUtility.h"
 
 @interface CSRegisterViewController ()<UITextFieldDelegate,MBProgressHUDDelegate,CSConnectionDelegate>{
     MBProgressHUD   *_hud;
@@ -60,44 +63,38 @@
     [self.view endEditing:YES];
     NSMutableString *alertMessage=nil;
     alertMessage=[[NSMutableString alloc]initWithString:@"请检查"];
-    NSError *__autoreleasing errorLoginName = nil;
+   NSError *__autoreleasing errorLoginName = nil;
     NSError *__autoreleasing errorNickName = nil;
     NSError *__autoreleasing errorPsaaword = nil;
-    NSError *__autoreleasing errorEmail = nil;
+
     if (![self checkLoginName:&errorLoginName]) {
-        [alertMessage appendString:@"登录名"];
+        [alertMessage appendString:@"登录名,"];
     }
     if (![self checkNickName:&errorNickName]) {
-        
+        [alertMessage appendString:@"昵称,"];
     }
     if (![self checkPassword:&errorPsaaword]) {
-        [alertMessage appendString:@"密码"];
+        [alertMessage appendString:@"密码,"];
     }
-    if (![self checkEmailAddress:&errorEmail]) {
-        [alertMessage appendString:@"邮箱"];
+    if (![CSUtility validateEmailAddress:self.txtEmailAddress.text]) {
+        [alertMessage appendString:@"邮箱,"];
     }
     if ([alertMessage length]>3) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:alertMessage delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
+    }else{
+        [self requestRegister];
     }
     
 }
+
 -(IBAction)actCancel:(id)sender{
     self.txtLoginName.text=@"";
     self.txtNickName.text=@"";
     self.txtPassword.text=@"";
     self.txtConfirmPassword.text=@"";
     self.txtEmailAddress.text=@"";
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-#pragma mark -
-#pragma mark Utility
--(void)requestRegister{
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(BOOL)checkLoginName:(NSError **)errInfo{
     BOOL bReturnVal  =NO;
@@ -137,25 +134,7 @@
     }
     return bReturnVal;
 }
--(BOOL)checkEmailAddress:(NSError **)errInfo{
-    BOOL bReturnVal  =NO;
-    NSError *err     =nil;
-    do {
-        if ([self.txtPassword.text length]<=0||[self.txtConfirmPassword.text length]<=0||![self.txtConfirmPassword.text isEqualToString:self.txtPassword.text]) {
-            err=[NSError errorWithDomain:NSCocoaErrorDomain
-                                    code:0
-                                userInfo:@{NSLocalizedDescriptionKey: @"Please check your email address."}];
-            break;
-        }
-    } while (0);
-    if (!err) {
-        bReturnVal=YES;
-    }
-    if (errInfo) {
-        *errInfo=err;
-    }
-    return bReturnVal;
-}
+
 -(BOOL)checkPassword:(NSError **)errInfo{
     BOOL bReturnVal  =NO;
     NSError *err     =nil;
@@ -174,6 +153,21 @@
         *errInfo=err;
     }
     return bReturnVal;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark -
+#pragma mark Utility
+-(void)requestRegister{
+    if (!_connectionMgr) {
+        self.connectionMgr = [CSConnectionManager sharedManager];
+    }
+    
+    [self.connectionMgr registerAccount:self.txtLoginName.text withNickName:self.txtNickName.text withPassword:[CSEncrypt encryptWithMD5:self.txtPassword.text] withEmail:self.txtEmailAddress.text callbackObj:self];
 }
 #pragma mark -
 #pragma mark UITextFieldDelegate
@@ -221,11 +215,11 @@
     
     if (self.error) {
         _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkerror"]];
-        _hud.labelText = @"登录失败";
+        _hud.labelText = @"注册失败";
     }
     else {
         _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
-        _hud.labelText = @"登陆成功";
+        _hud.labelText = @"注册成功";
     }
     
     _hud.mode = MBProgressHUDModeCustomView;
@@ -240,7 +234,7 @@
     }
     _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkerror"]];
 	_hud.mode = MBProgressHUDModeCustomView;
-	_hud.labelText = @"登录失败";
+	_hud.labelText = @"注册失败";
     [_hud hide:YES afterDelay:1];
 }
 
@@ -253,7 +247,7 @@
     
     _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkerror"]];
 	_hud.mode = MBProgressHUDModeCustomView;
-	_hud.labelText = @"登录超时";
+	_hud.labelText = @"注册超时";
     [_hud hide:YES afterDelay:1];
 }
 

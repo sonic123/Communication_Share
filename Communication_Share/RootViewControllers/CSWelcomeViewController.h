@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CSRegisterViewController;
+//@class CSRegisterViewController;
+#import "CSRegisterViewController.h"
 @protocol CSWelecomeDelegate;
+typedef enum DisplaySubViewType : NSInteger {
+    kRegisterView  = 0,
+    kFindPasswordView,
+}DisplaySubViewEnum;
 
-@interface CSWelcomeViewController : UIViewController
+@interface CSWelcomeViewController : UIViewController<CSRegisterViewDelegate>
 
+@property (assign, nonatomic) DisplaySubViewEnum subViewType;
 @property (assign, nonatomic) id<CSWelecomeDelegate> delegate;
 @property (strong, nonatomic) NSError *error;
 @property (weak, nonatomic) IBOutlet UITextField *txtUserName;
@@ -21,8 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAccountRegister;
 @property (strong, nonatomic, readonly) NSString *userName;
 
-@property (strong, nonatomic) UINavigationController *navi;
-@property (strong, nonatomic) CSRegisterViewController *registerVC;
+
+
 
 
 -(void)resetUI;
@@ -34,5 +40,6 @@
 
 -(void)welcomeLoginEnd:(CSWelcomeViewController *)aWelcomeVC;
 -(void)welcomeLoginFailed:(CSWelcomeViewController *)aWelcomeVC;
+-(void)showRegitserView:(CSRegisterViewController *)aRegisterVC;
 
 @end

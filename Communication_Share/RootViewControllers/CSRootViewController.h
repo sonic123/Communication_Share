@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CSWelcomeViewController;
+#import "CSWelcomeViewController.h"
+
 @class CSContentViewController;
 
-@interface CSRootViewController : UIViewController
+@interface CSRootViewController : UIViewController<CSWelecomeDelegate>
 
 @property (strong, nonatomic) CSWelcomeViewController *welcomeVC;
 @property (strong, nonatomic) CSContentViewController *contentVC;
 
 @end
+
+

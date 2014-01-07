@@ -18,5 +18,5 @@ static NSString *const UserInfoFileName = @"userInfo";
                          domain:(NSSearchPathDomainMask)domainMask
                relativeFilePath:(NSString *)strRelativeFilePath;
 +(NSString *)userInfoPath;
-
++ (BOOL)validateEmailAddress:(NSString*)address;
 @end

@@ -18,8 +18,13 @@
 +(CSConnectionManager *)sharedManager;
 
 -(void)login:(NSString *)username
-    password:(NSString *)password
+withPassword:(NSString *)password
  callbackObj:(id<CSConnectionDelegate>)callbackDelegate;
+-(void)registerAccount:(NSString *)loginName
+          withNickName:(NSString *)nickName
+          withPassword:(NSString *)password
+             withEmail:(NSString *)email
+           callbackObj:(id<CSConnectionDelegate>)callbackDelegate;
 
 @end
 

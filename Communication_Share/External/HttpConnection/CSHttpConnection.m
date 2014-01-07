@@ -232,6 +232,7 @@
         _currentConnection = [[NSURLConnection connectionWithRequest:aURLRequest
                                                             delegate:self] retain];
         [_currentConnection start];
+
     }
 }
 

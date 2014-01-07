@@ -62,6 +62,12 @@
 		C362D176187B05CF00650411 /* CSHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C362D175187B05CF00650411 /* CSHttpConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C362D17A187B096900650411 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C362D179187B096900650411 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C362D17C187B0B4D00650411 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C362D17B187B0B4D00650411 /* SystemConfiguration.framework */; };
+		C377C6E9187C3ED90018096B /* NSObject+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C377C6DF187C3ED90018096B /* NSObject+ABExtras.m */; };
+		C377C6EA187C3ED90018096B /* UIImageView+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C377C6E1187C3ED90018096B /* UIImageView+ABExtras.m */; };
+		C377C6EB187C3ED90018096B /* UINavigationController+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C377C6E3187C3ED90018096B /* UINavigationController+ABExtras.m */; };
+		C377C6EC187C3ED90018096B /* UIView+ABExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = C377C6E5187C3ED90018096B /* UIView+ABExtras.m */; };
+		C377C6ED187C3ED90018096B /* FlipSquaresNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C377C6E8187C3ED90018096B /* FlipSquaresNavigationController.m */; };
+		C3C881E5187C4F4700280DA1 /* CSEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C881E4187C4F4700280DA1 /* CSEncrypt.m */; };
 		C3EF1F3F187BA01A002D6AAA /* CSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EF1F3D187BA01A002D6AAA /* CSRegisterViewController.m */; };
 		C3EF1F40187BA01A002D6AAA /* CSRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EF1F3E187BA01A002D6AAA /* CSRegisterViewController.xib */; };
 /* End PBXBuildFile section */
@@ -160,6 +166,18 @@
 		C362D178187B096900650411 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C362D179187B096900650411 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C362D17B187B0B4D00650411 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C377C6DE187C3ED90018096B /* NSObject+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABExtras.h"; sourceTree = "<group>"; };
+		C377C6DF187C3ED90018096B /* NSObject+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABExtras.m"; sourceTree = "<group>"; };
+		C377C6E0187C3ED90018096B /* UIImageView+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ABExtras.h"; sourceTree = "<group>"; };
+		C377C6E1187C3ED90018096B /* UIImageView+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ABExtras.m"; sourceTree = "<group>"; };
+		C377C6E2187C3ED90018096B /* UINavigationController+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ABExtras.h"; sourceTree = "<group>"; };
+		C377C6E3187C3ED90018096B /* UINavigationController+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ABExtras.m"; sourceTree = "<group>"; };
+		C377C6E4187C3ED90018096B /* UIView+ABExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ABExtras.h"; sourceTree = "<group>"; };
+		C377C6E5187C3ED90018096B /* UIView+ABExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ABExtras.m"; sourceTree = "<group>"; };
+		C377C6E7187C3ED90018096B /* FlipSquaresNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipSquaresNavigationController.h; sourceTree = "<group>"; };
+		C377C6E8187C3ED90018096B /* FlipSquaresNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipSquaresNavigationController.m; sourceTree = "<group>"; };
+		C3C881E3187C4F4700280DA1 /* CSEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSEncrypt.h; sourceTree = "<group>"; };
+		C3C881E4187C4F4700280DA1 /* CSEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSEncrypt.m; sourceTree = "<group>"; };
 		C3EF1F3C187BA01A002D6AAA /* CSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRegisterViewController.h; sourceTree = "<group>"; };
 		C3EF1F3D187BA01A002D6AAA /* CSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRegisterViewController.m; sourceTree = "<group>"; };
 		C3EF1F3E187BA01A002D6AAA /* CSRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSRegisterViewController.xib; sourceTree = "<group>"; };
@@ -289,6 +307,9 @@
 		C34194F7187AEA3600401AAA /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C3C881E2187C4F3A00280DA1 /* Encrypt */,
+				C377C6DD187C3ED90018096B /* Categories */,
+				C377C6E6187C3ED90018096B /* SquaresFlipNavigation */,
 				C352BD71187B177E0093168C /* MBProgressHUD */,
 				C352BD74187B177E0093168C /* SDWebImage */,
 				C362D177187B096900650411 /* Reachability */,
@@ -428,6 +449,39 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		C377C6DD187C3ED90018096B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C377C6DE187C3ED90018096B /* NSObject+ABExtras.h */,
+				C377C6DF187C3ED90018096B /* NSObject+ABExtras.m */,
+				C377C6E0187C3ED90018096B /* UIImageView+ABExtras.h */,
+				C377C6E1187C3ED90018096B /* UIImageView+ABExtras.m */,
+				C377C6E2187C3ED90018096B /* UINavigationController+ABExtras.h */,
+				C377C6E3187C3ED90018096B /* UINavigationController+ABExtras.m */,
+				C377C6E4187C3ED90018096B /* UIView+ABExtras.h */,
+				C377C6E5187C3ED90018096B /* UIView+ABExtras.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C377C6E6187C3ED90018096B /* SquaresFlipNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				C377C6E7187C3ED90018096B /* FlipSquaresNavigationController.h */,
+				C377C6E8187C3ED90018096B /* FlipSquaresNavigationController.m */,
+			);
+			path = SquaresFlipNavigation;
+			sourceTree = "<group>";
+		};
+		C3C881E2187C4F3A00280DA1 /* Encrypt */ = {
+			isa = PBXGroup;
+			children = (
+				C3C881E3187C4F4700280DA1 /* CSEncrypt.h */,
+				C3C881E4187C4F4700280DA1 /* CSEncrypt.m */,
+			);
+			path = Encrypt;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -534,6 +588,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C377C6EB187C3ED90018096B /* UINavigationController+ABExtras.m in Sources */,
+				C3C881E5187C4F4700280DA1 /* CSEncrypt.m in Sources */,
+				C377C6ED187C3ED90018096B /* FlipSquaresNavigationController.m in Sources */,
 				C34194FE187AEAD600401AAA /* CSRootViewController.m in Sources */,
 				C352BD93187B177E0093168C /* MKAnnotationView+WebCache.m in Sources */,
 				C352BDA0187B177E0093168C /* UIImageView+WebCache.m in Sources */,
@@ -544,6 +601,7 @@
 				C362D176187B05CF00650411 /* CSHttpConnection.m in Sources */,
 				C352BD96187B177E0093168C /* SDWebImageCompat.m in Sources */,
 				C362D172187B057000650411 /* CSUtility.m in Sources */,
+				C377C6EA187C3ED90018096B /* UIImageView+ABExtras.m in Sources */,
 				C352BD97187B177E0093168C /* SDWebImageDecoder.m in Sources */,
 				C352BD9E187B177E0093168C /* UIImage+MultiFormat.m in Sources */,
 				C352BD9F187B177E0093168C /* UIImage+WebP.m in Sources */,
@@ -555,8 +613,10 @@
 				C362D16F187B02AA00650411 /* CSConnectionManager.m in Sources */,
 				C3EF1F3F187BA01A002D6AAA /* CSRegisterViewController.m in Sources */,
 				C352BD92187B177E0093168C /* MBProgressHUD.m in Sources */,
+				C377C6E9187C3ED90018096B /* NSObject+ABExtras.m in Sources */,
 				C352BD95187B177E0093168C /* SDImageCache.m in Sources */,
 				C352BD9C187B177E0093168C /* UIButton+WebCache.m in Sources */,
+				C377C6EC187C3ED90018096B /* UIView+ABExtras.m in Sources */,
 				C362D17A187B096900650411 /* Reachability.m in Sources */,
 				C352BDA5187B1A560093168C /* CSUserDM.m in Sources */,
 				C3419508187AEAFC00401AAA /* CSContentViewController.m in Sources */,

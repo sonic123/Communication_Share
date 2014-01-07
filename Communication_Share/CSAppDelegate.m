@@ -8,6 +8,7 @@
 
 #import "CSAppDelegate.h"
 #import "CSRootViewController.h"
+#import "FlipSquaresNavigationController.h"
 
 @implementation CSAppDelegate
 
@@ -18,7 +19,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     CSRootViewController *rootVC=[[CSRootViewController alloc]initWithNibName:@"CSRootViewController" bundle:nil];
-    self.window.rootViewController=rootVC;
+    self.window.rootViewController=[[FlipSquaresNavigationController alloc]initWithRootViewController:rootVC];
     [self.window makeKeyAndVisible];
     return YES;
 }

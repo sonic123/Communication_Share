@@ -13,6 +13,7 @@
 #import "CSConnectionManager.h"
 #import "CSUtility.h"
 #import "CSRegisterViewController.h"
+#import "CSEncrypt.h"
 
 @interface CSWelcomeViewController ()<UITextFieldDelegate,MBProgressHUDDelegate,CSConnectionDelegate>{
     MBProgressHUD   *_hud;
@@ -50,9 +51,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (!self.navi.isNavigationBarHidden) {
-        [self.navi setNavigationBarHidden:YES];
-    }
 }
 -(void)resetUI{
     [self.view endEditing:YES];
@@ -66,20 +64,14 @@
     _userName=nil;
 }
 -(IBAction)tapFindPWD:(id)sender{
-    NSLog(@"Find Password !");
+    
 }
 -(IBAction)tapAccountRegister:(id)sender{
-    NSLog(@"Register Account !");
-    if (!_navi) {
-        _navi=[[UINavigationController alloc]initWithRootViewController:self];
-    }
-    if (!_registerVC) {
-        _registerVC=[[CSRegisterViewController alloc]initWithNibName:@"CSRegisterViewController" bundle:nil];
-    }
-    [self.navi pushViewController:_registerVC animated:YES];
-    
-    
+    CSRegisterViewController *_registerVC=nil;
+    _registerVC=[[CSRegisterViewController alloc]initWithNibName:@"CSRegisterViewController" bundle:nil];_registerVC.delegate=self;
+    [self.delegate showRegitserView:_registerVC];
 }
+
 -(IBAction)actLogin:(id)sender{
     [self.view endEditing:YES];
     
@@ -115,7 +107,7 @@
     }
     
     [self.connectionMgr login:self.txtUserName.text
-                     password:self.txtPassowrd.text
+                     withPassword:[CSEncrypt encryptWithMD5:self.txtPassowrd.text ]
                   callbackObj:self];
 }
 -(BOOL)checkInvalid:(NSError **)errInfo{
@@ -155,6 +147,11 @@
     
     return YES;
 }
+#pragma mark -
+#pragma mark CSRegisterDelegate
+-(void)welcomeLoginEnd:(CSRegisterViewController *)aRegisterVC{
+    [self.delegate welcomeLoginEnd:self];
+}
 
 #pragma mark -
 #pragma mark Connection Delegate
@@ -163,20 +160,20 @@
     self.error = nil;
     
     CSUserDM *userInfo = [[CSUserDM alloc] init];
-//    if (![ASUserDM parseIntoUserDM:userInfo fromXML:(NSString *)dataResponse]) {
-//        self.error = [NSError errorWithDomain:NSCocoaErrorDomain
-//                                         code:0
-//                                     userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Parser Error", nil)}];
-//    }
-//    else {
-        userInfo.password = self.txtPassowrd.text;
-        
-        _userName = nil;
-        _userName = [[NSString alloc] initWithString:userInfo.userName];
-        
-        [NSKeyedArchiver archiveRootObject:userInfo
-                                    toFile:[CSUtility userInfoPath]];
-//    }
+    //    if (![ASUserDM parseIntoUserDM:userInfo fromXML:(NSString *)dataResponse]) {
+    //        self.error = [NSError errorWithDomain:NSCocoaErrorDomain
+    //                                         code:0
+    //                                     userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Parser Error", nil)}];
+    //    }
+    //    else {
+    userInfo.password = self.txtPassowrd.text;
+    
+    _userName = nil;
+    _userName = [[NSString alloc] initWithString:userInfo.userName];
+    
+    [NSKeyedArchiver archiveRootObject:userInfo
+                                toFile:[CSUtility userInfoPath]];
+    //    }
     
     
     if (self.error) {

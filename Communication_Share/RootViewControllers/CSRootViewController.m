@@ -23,6 +23,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:YES];
     BOOL     bIsDir = NO;
     NSString *strUserInfo=[CSUtility userInfoPath];
     
@@ -103,6 +104,11 @@
 
 -(void)welcomeLoginFailed:(CSWelcomeViewController *)aWelcomeVC{
     
+}
+#pragma mark -
+#pragma mark RegisterDelegate
+-(void)showRegitserView:(CSRegisterViewController *)aRegisterVC{
+    [self.navigationController pushViewController:(UIViewController *)aRegisterVC animated:YES];
 }
 
 
