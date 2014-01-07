@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CSRegisterViewController;
 @protocol CSWelecomeDelegate;
 
 @interface CSWelcomeViewController : UIViewController
@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblFindPwd;
 @property (weak, nonatomic) IBOutlet UILabel *lblAccountRegister;
 @property (strong, nonatomic, readonly) NSString *userName;
+
+@property (strong, nonatomic) UINavigationController *navi;
+@property (strong, nonatomic) CSRegisterViewController *registerVC;
 
 
 -(void)resetUI;

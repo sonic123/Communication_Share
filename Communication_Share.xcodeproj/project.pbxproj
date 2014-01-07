@@ -62,6 +62,8 @@
 		C362D176187B05CF00650411 /* CSHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C362D175187B05CF00650411 /* CSHttpConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C362D17A187B096900650411 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C362D179187B096900650411 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C362D17C187B0B4D00650411 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C362D17B187B0B4D00650411 /* SystemConfiguration.framework */; };
+		C3EF1F3F187BA01A002D6AAA /* CSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EF1F3D187BA01A002D6AAA /* CSRegisterViewController.m */; };
+		C3EF1F40187BA01A002D6AAA /* CSRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EF1F3E187BA01A002D6AAA /* CSRegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,9 @@
 		C362D178187B096900650411 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C362D179187B096900650411 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C362D17B187B0B4D00650411 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C3EF1F3C187BA01A002D6AAA /* CSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRegisterViewController.h; sourceTree = "<group>"; };
+		C3EF1F3D187BA01A002D6AAA /* CSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRegisterViewController.m; sourceTree = "<group>"; };
+		C3EF1F3E187BA01A002D6AAA /* CSRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSRegisterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +329,9 @@
 				C3419505187AEAFC00401AAA /* CSContentViewController.h */,
 				C3419506187AEAFC00401AAA /* CSContentViewController.m */,
 				C3419507187AEAFC00401AAA /* CSContentViewController.xib */,
+				C3EF1F3C187BA01A002D6AAA /* CSRegisterViewController.h */,
+				C3EF1F3D187BA01A002D6AAA /* CSRegisterViewController.m */,
+				C3EF1F3E187BA01A002D6AAA /* CSRegisterViewController.xib */,
 			);
 			path = RootViewControllers;
 			sourceTree = "<group>";
@@ -503,6 +511,7 @@
 				C3419504187AEAEA00401AAA /* CSWelcomeViewController.xib in Resources */,
 				C352BDAD187B1E420093168C /* 37x-Checkmark.png in Resources */,
 				C352BDAB187B1E420093168C /* 37x-Checkerror.png in Resources */,
+				C3EF1F40187BA01A002D6AAA /* CSRegisterViewController.xib in Resources */,
 				C34194FF187AEAD600401AAA /* CSRootViewController.xib in Resources */,
 				C352BDAC187B1E420093168C /* 37x-Checkerror@2x.png in Resources */,
 				C3419509187AEAFC00401AAA /* CSContentViewController.xib in Resources */,
@@ -544,6 +553,7 @@
 				C34194D5187AE98E00401AAA /* main.m in Sources */,
 				C352BD94187B177E0093168C /* NSData+GIF.m in Sources */,
 				C362D16F187B02AA00650411 /* CSConnectionManager.m in Sources */,
+				C3EF1F3F187BA01A002D6AAA /* CSRegisterViewController.m in Sources */,
 				C352BD92187B177E0093168C /* MBProgressHUD.m in Sources */,
 				C352BD95187B177E0093168C /* SDImageCache.m in Sources */,
 				C352BD9C187B177E0093168C /* UIButton+WebCache.m in Sources */,

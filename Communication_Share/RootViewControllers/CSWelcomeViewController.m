@@ -12,6 +12,7 @@
 #import "CSUserDM.h"
 #import "CSConnectionManager.h"
 #import "CSUtility.h"
+#import "CSRegisterViewController.h"
 
 @interface CSWelcomeViewController ()<UITextFieldDelegate,MBProgressHUDDelegate,CSConnectionDelegate>{
     MBProgressHUD   *_hud;
@@ -46,8 +47,12 @@
     [_lblFindPwd addGestureRecognizer:tapGesture];
     tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAccountRegister:)];
     [_lblAccountRegister addGestureRecognizer:tapGesture];
-
-    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (!self.navi.isNavigationBarHidden) {
+        [self.navi setNavigationBarHidden:YES];
+    }
 }
 -(void)resetUI{
     [self.view endEditing:YES];
@@ -55,7 +60,7 @@
         [_hud hide:YES];
     }
     
-    self.txtUserName.text=@"";
+    self.txtPassowrd.text=@"";
     
     self.error=nil;
     _userName=nil;
@@ -65,6 +70,15 @@
 }
 -(IBAction)tapAccountRegister:(id)sender{
     NSLog(@"Register Account !");
+    if (!_navi) {
+        _navi=[[UINavigationController alloc]initWithRootViewController:self];
+    }
+    if (!_registerVC) {
+        _registerVC=[[CSRegisterViewController alloc]initWithNibName:@"CSRegisterViewController" bundle:nil];
+    }
+    [self.navi pushViewController:_registerVC animated:YES];
+    
+    
 }
 -(IBAction)actLogin:(id)sender{
     [self.view endEditing:YES];
@@ -167,11 +181,11 @@
     
     if (self.error) {
         _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkerror"]];
-        _hud.labelText = @"Login Failed";
+        _hud.labelText = @"登录失败";
     }
     else {
         _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
-        _hud.labelText = @"Succeed";
+        _hud.labelText = @"登陆成功";
     }
     
     _hud.mode = MBProgressHUDModeCustomView;
@@ -199,7 +213,7 @@
     
     _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkerror"]];
 	_hud.mode = MBProgressHUDModeCustomView;
-	_hud.labelText = @"Login Failed";
+	_hud.labelText = @"登录超时";
     [_hud hide:YES afterDelay:1];
 }
 
